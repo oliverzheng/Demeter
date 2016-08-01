@@ -28,12 +28,5 @@ class LocalFile: File {
     let fm = NSFileManager.defaultManager()
     return fm.fileExistsAtPath(self.absolutePath);
   }
-  
-  var absolutePath: String {
-    return fileSource.rootURL.URLByAppendingPathComponent(relativePath).path!
-  }
-  
-  var filename: String {
-    return (relativePath as NSString).lastPathComponent
-  }
+
 }

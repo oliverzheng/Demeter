@@ -72,16 +72,7 @@ class LocalFileSource: FileSource {
       print("\(error)")
     }
   }
-  
-  func getRelativePath(absolutePath: String) -> String? {
-    if !absolutePath.hasPrefix(rootURL.path!) {
-      return nil
-    }
-    
-    let index = absolutePath.startIndex.advancedBy(rootURL.path!.characters.count)
-    return absolutePath.substringFromIndex(index)
-  }
-  
+
   func createNewFile(relativePath: String) -> LocalFile? {
     let url = rootURL.URLByAppendingPathComponent(relativePath)
     let absolutePath = url.path!

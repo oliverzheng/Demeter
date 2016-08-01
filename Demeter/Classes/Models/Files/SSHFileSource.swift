@@ -69,15 +69,6 @@ class SSHFileSource: FileSource {
     task.launch()
   }
   
-  func getRelativePath(absolutePath: String) -> String? {
-    if !absolutePath.hasPrefix(rootURL.path!) {
-      return nil
-    }
-    
-    let index = absolutePath.startIndex.advancedBy(rootURL.path!.characters.count)
-    return absolutePath.substringFromIndex(index)
-  }
-  
   func copy(file: File, localPath: String, copyCompleteHandler: () -> Void) -> Void {
     if file.fileSource !== self {
       return

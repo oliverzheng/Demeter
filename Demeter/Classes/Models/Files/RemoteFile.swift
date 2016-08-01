@@ -27,12 +27,5 @@ class RemoteFile: File {
     self.isDirectory = isDirectory
     self.localFile = localFile
   }
-  
-  var absolutePath: String {
-    return fileSource.rootURL.URLByAppendingPathComponent(relativePath).path!
-  }
-  
-  var filename: String {
-    return (relativePath as NSString).lastPathComponent
-  }
+
 }

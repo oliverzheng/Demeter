@@ -9,11 +9,19 @@
 import Foundation
 
 protocol File: class {
-  
   var fileSource: FileSource! { get }
   var relativePath: String { get }
-  var absolutePath: String { get }
-  var filename: String { get }
   var isDirectory: Bool { get }
   var childrenFiles: [File]? { get set }
+}
+
+extension File {
+  
+  var filename: String {
+    return (relativePath as NSString).lastPathComponent
+  }
+
+  var absolutePath: String {
+    return fileSource.rootURL.URLByAppendingPathComponent(relativePath).path!
+  }
 }
