@@ -11,6 +11,12 @@
 		64FD12CD1D4C6A7700C58CB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12CC1D4C6A7700C58CB6 /* ViewController.swift */; };
 		64FD12CF1D4C6A7700C58CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FD12CE1D4C6A7700C58CB6 /* Assets.xcassets */; };
 		64FD12D21D4C6A7700C58CB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FD12D01D4C6A7700C58CB6 /* Main.storyboard */; };
+		64FD12E91D4DB41400C58CB6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12E61D4DB41400C58CB6 /* File.swift */; };
+		64FD12EA1D4DB41400C58CB6 /* FileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12E71D4DB41400C58CB6 /* FileSource.swift */; };
+		64FD12EB1D4DB41400C58CB6 /* LocalFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12E81D4DB41400C58CB6 /* LocalFileSource.swift */; };
+		64FD12ED1D4DB57F00C58CB6 /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12EC1D4DB57F00C58CB6 /* LocalFile.swift */; };
+		64FD12EF1D4DB5A200C58CB6 /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12EE1D4DB5A200C58CB6 /* RemoteFile.swift */; };
+		64FD12F11D4E890600C58CB6 /* SSHFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FD12F01D4E890600C58CB6 /* SSHFileSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		64FD12CE1D4C6A7700C58CB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64FD12D11D4C6A7700C58CB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64FD12D31D4C6A7700C58CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64FD12E61D4DB41400C58CB6 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Classes/Models/Files/File.swift; sourceTree = "<group>"; };
+		64FD12E71D4DB41400C58CB6 /* FileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSource.swift; path = Classes/Models/Files/FileSource.swift; sourceTree = "<group>"; };
+		64FD12E81D4DB41400C58CB6 /* LocalFileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalFileSource.swift; path = Classes/Models/Files/LocalFileSource.swift; sourceTree = "<group>"; };
+		64FD12EC1D4DB57F00C58CB6 /* LocalFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalFile.swift; path = Classes/Models/Files/LocalFile.swift; sourceTree = "<group>"; };
+		64FD12EE1D4DB5A200C58CB6 /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = Classes/Models/Files/RemoteFile.swift; sourceTree = "<group>"; };
+		64FD12F01D4E890600C58CB6 /* SSHFileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSHFileSource.swift; path = Classes/Models/Files/SSHFileSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,7 @@
 		64FD12C91D4C6A7700C58CB6 /* Demeter */ = {
 			isa = PBXGroup;
 			children = (
+				64FD12DA1D4C6EA300C58CB6 /* Models */,
 				64FD12CA1D4C6A7700C58CB6 /* AppDelegate.swift */,
 				64FD12CC1D4C6A7700C58CB6 /* ViewController.swift */,
 				64FD12CE1D4C6A7700C58CB6 /* Assets.xcassets */,
@@ -59,6 +72,27 @@
 				64FD12D31D4C6A7700C58CB6 /* Info.plist */,
 			);
 			path = Demeter;
+			sourceTree = "<group>";
+		};
+		64FD12DA1D4C6EA300C58CB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64FD12E51D4DB3E500C58CB6 /* Files */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		64FD12E51D4DB3E500C58CB6 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				64FD12E61D4DB41400C58CB6 /* File.swift */,
+				64FD12EC1D4DB57F00C58CB6 /* LocalFile.swift */,
+				64FD12EE1D4DB5A200C58CB6 /* RemoteFile.swift */,
+				64FD12E71D4DB41400C58CB6 /* FileSource.swift */,
+				64FD12E81D4DB41400C58CB6 /* LocalFileSource.swift */,
+				64FD12F01D4E890600C58CB6 /* SSHFileSource.swift */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64FD12E91D4DB41400C58CB6 /* File.swift in Sources */,
+				64FD12EB1D4DB41400C58CB6 /* LocalFileSource.swift in Sources */,
+				64FD12EA1D4DB41400C58CB6 /* FileSource.swift in Sources */,
+				64FD12EF1D4DB5A200C58CB6 /* RemoteFile.swift in Sources */,
+				64FD12F11D4E890600C58CB6 /* SSHFileSource.swift in Sources */,
 				64FD12CD1D4C6A7700C58CB6 /* ViewController.swift in Sources */,
+				64FD12ED1D4DB57F00C58CB6 /* LocalFile.swift in Sources */,
 				64FD12CB1D4C6A7700C58CB6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
