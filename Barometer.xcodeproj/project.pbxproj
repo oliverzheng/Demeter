@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		64FD12C71D4C6A7700C58CB6 /* Demeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FD12C71D4C6A7700C58CB6 /* Barometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FD12CA1D4C6A7700C58CB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64FD12CC1D4C6A7700C58CB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		64FD12CE1D4C6A7700C58CB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		64FD12BE1D4C6A7700C58CB6 = {
 			isa = PBXGroup;
 			children = (
-				64FD12C91D4C6A7700C58CB6 /* Demeter */,
+				64FD12C91D4C6A7700C58CB6 /* Barometer */,
 				64FD12C81D4C6A7700C58CB6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +56,12 @@
 		64FD12C81D4C6A7700C58CB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64FD12C71D4C6A7700C58CB6 /* Demeter.app */,
+				64FD12C71D4C6A7700C58CB6 /* Barometer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64FD12C91D4C6A7700C58CB6 /* Demeter */ = {
+		64FD12C91D4C6A7700C58CB6 /* Barometer */ = {
 			isa = PBXGroup;
 			children = (
 				64FD12DA1D4C6EA300C58CB6 /* Models */,
@@ -71,7 +71,8 @@
 				64FD12D01D4C6A7700C58CB6 /* Main.storyboard */,
 				64FD12D31D4C6A7700C58CB6 /* Info.plist */,
 			);
-			path = Demeter;
+			name = Barometer;
+			path = Barometer;
 			sourceTree = "<group>";
 		};
 		64FD12DA1D4C6EA300C58CB6 /* Models */ = {
@@ -98,9 +99,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		64FD12C61D4C6A7700C58CB6 /* Demeter */ = {
+		64FD12C61D4C6A7700C58CB6 /* Barometer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64FD12D61D4C6A7700C58CB6 /* Build configuration list for PBXNativeTarget "Demeter" */;
+			buildConfigurationList = 64FD12D61D4C6A7700C58CB6 /* Build configuration list for PBXNativeTarget "Barometer" */;
 			buildPhases = (
 				64FD12C31D4C6A7700C58CB6 /* Sources */,
 				64FD12C41D4C6A7700C58CB6 /* Frameworks */,
@@ -110,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = Demeter;
-			productName = Demeter;
-			productReference = 64FD12C71D4C6A7700C58CB6 /* Demeter.app */;
+			name = Barometer;
+			productName = Barometer;
+			productReference = 64FD12C71D4C6A7700C58CB6 /* Barometer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +131,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 64FD12C21D4C6A7700C58CB6 /* Build configuration list for PBXProject "Demeter" */;
+			buildConfigurationList = 64FD12C21D4C6A7700C58CB6 /* Build configuration list for PBXProject "Barometer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -143,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64FD12C61D4C6A7700C58CB6 /* Demeter */,
+				64FD12C61D4C6A7700C58CB6 /* Barometer */,
 			);
 		};
 /* End PBXProject section */
@@ -277,10 +278,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Demeter/Info.plist;
+				INFOPLIST_FILE = Barometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.oliverzheng.Demeter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oliverzheng.Barometer;
+				PRODUCT_NAME = Barometer;
 			};
 			name = Debug;
 		};
@@ -289,17 +290,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Demeter/Info.plist;
+				INFOPLIST_FILE = Barometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.oliverzheng.Demeter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oliverzheng.Barometer;
+				PRODUCT_NAME = Barometer;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		64FD12C21D4C6A7700C58CB6 /* Build configuration list for PBXProject "Demeter" */ = {
+		64FD12C21D4C6A7700C58CB6 /* Build configuration list for PBXProject "Barometer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64FD12D41D4C6A7700C58CB6 /* Debug */,
@@ -308,13 +309,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64FD12D61D4C6A7700C58CB6 /* Build configuration list for PBXNativeTarget "Demeter" */ = {
+		64FD12D61D4C6A7700C58CB6 /* Build configuration list for PBXNativeTarget "Barometer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64FD12D71D4C6A7700C58CB6 /* Debug */,
 				64FD12D81D4C6A7700C58CB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

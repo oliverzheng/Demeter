@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Demeter.xcodeproj">
+      location = "self:/Users/oliver/projects/barometer/Barometer.xcodeproj">
    </FileRef>
 </Workspace>
