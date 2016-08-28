@@ -10,15 +10,16 @@ import Cocoa
 
 class ViewController: NSViewController {
   
-  @IBOutlet var textView: NSTextView!
-  
   @IBOutlet weak var outlineView: NSOutlineView!
   @IBOutlet weak var localDirectoryTextField: NSTextField!
-  @IBOutlet weak var sshConnectionPathTextField: NSTextField!
+  @IBOutlet weak var sshUserTextField: NSTextField!
+  @IBOutlet weak var sshHostTextField: NSTextField!
+  @IBOutlet weak var sshRemoteDirectoryTextField: NSTextField!
+  @IBOutlet weak var sshCacheDirectoryTextField: NSTextField!
+  @IBOutlet weak var sshConnectButton: NSButton!
+  @IBOutlet weak var sshConnectionStatusTextField: NSTextField!
   
-  var localFileSource: LocalFileSource?
-  var sshFileSource: SSHFileSource?
-  var fileSource: FileSource?
+  var isSSHConnected: Bool = false
   
   var currentFileSource: FileSource?
   var localCacheFileSource: LocalFileSource?
@@ -26,6 +27,12 @@ class ViewController: NSViewController {
   private func resetFileSources() {
     currentFileSource = nil
     localCacheFileSource = nil
+    
+    sshConnectionStatusTextField.stringValue = "Disconnected"
+    sshConnectButton.title = "Connect"
+    isSSHConnected = false
+
+    outlineView.reloadData()
   }
   
   @IBAction func onLocalDirectoryBrowsePush(sender: AnyObject) {
@@ -40,36 +47,59 @@ class ViewController: NSViewController {
       
       localDirectoryTextField.stringValue = url.absoluteString
       currentFileSource = LocalFileSource(rootURL: url)
+      
       outlineView.reloadData()
     }
   }
   
-  @IBAction func onRemoteButtonPush(sender: AnyObject) {
-    let sshFileSource = SSHFileSource(username: "oliver", host: "phatbaby.mooo.com", rootURL: NSURL(fileURLWithPath: "/home/oliver/tmp/", isDirectory: true))
-    let isAvailable = sshFileSource.isAvailable
-    textView.string = isAvailable ? "available" : "not available"
+  @IBAction func onSSHCacheDirectoryBrowsePush(sender: AnyObject) {
+    let fileDialog = NSOpenPanel()
+    fileDialog.canChooseDirectories = true
+    fileDialog.canChooseFiles = false
+    fileDialog.runModal()
     
-    sshFileSource.listFilesInDirectory(sshFileSource.rootDirectoryFile) {
-      let paths = $0.map { file -> String in file.relativePath }
-      let allPaths = paths.joinWithSeparator("\n")
-      self.textView.string = allPaths
+    let optionalUrl = fileDialog.URL
+    if let url = optionalUrl {
+      sshCacheDirectoryTextField.stringValue = url.absoluteString
+    }
+  }
+
+  @IBAction func onSSHConnectButtonPush(sender: AnyObject) {
+    if isSSHConnected {
+      resetFileSources()
+      return
     }
     
-    self.sshFileSource = sshFileSource
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-/*
-    localFileSource = LocalFileSource(rootURL: NSURL(fileURLWithPath: "/Users/oliverzheng/tmp/", isDirectory: true))
-
-    sshFileSource = SSHFileSource(username: "oliver", host: "phatbaby.mooo.com", rootURL: NSURL(fileURLWithPath: "/home/oliver/tmp/", isDirectory: true))
-
-    fileSource = sshFileSource
+    let user = sshUserTextField.stringValue
+    let host = sshHostTextField.stringValue
+    let remoteDirectory = sshRemoteDirectoryTextField.stringValue
+    let cacheDirectory = sshCacheDirectoryTextField.stringValue
+    if (
+      user.isEmpty ||
+      host.isEmpty ||
+      remoteDirectory.isEmpty ||
+      cacheDirectory.isEmpty
+    ) {
+      return
+    }
     
-    // Do any additional setup after loading the view.
-    textView.string = "herp derp"
-*/
+    resetFileSources()
+    
+    currentFileSource = SSHFileSource(username: user, host: host, rootURL: NSURL(fileURLWithPath: remoteDirectory, isDirectory: true))
+    localCacheFileSource = LocalFileSource(rootURL: NSURL(fileURLWithPath: cacheDirectory))
+    
+    if currentFileSource!.isAvailable {
+      sshConnectionStatusTextField.stringValue = "Connected"
+
+      sshConnectButton.title = "Disconnect"
+      isSSHConnected = true
+      
+      outlineView.reloadData()
+    } else {
+      resetFileSources()
+      
+      sshConnectionStatusTextField.stringValue = "Connection Error"
+    }
   }
 }
 
