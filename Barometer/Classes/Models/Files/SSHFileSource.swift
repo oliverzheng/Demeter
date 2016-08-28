@@ -6,6 +6,8 @@
 //  Copyright © 2016 Oliver Zheng. All rights reserved.
 //
 
+// Need to run "ssh -M -S /tmp/%r@%h:%p phatbaby.mooo.com" first.
+
 import Foundation
 
 class SSHFileSource: FileSource {
