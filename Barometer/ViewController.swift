@@ -94,12 +94,45 @@ class ViewController: NSViewController {
       sshConnectButton.title = "Disconnect"
       isSSHConnected = true
       
+      saveSSHFieldsToPreferences()
+      
       outlineView.reloadData()
     } else {
       resetFileSources()
       
       sshConnectionStatusTextField.stringValue = "Connection Error"
     }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    populateSSHFieldsFromPreferences()
+  }
+  
+  private func populateSSHFieldsFromPreferences() {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    if let sshUser = userDefaults.stringForKey("sshUser") {
+      sshUserTextField.stringValue = sshUser
+    }
+    if let sshHost = userDefaults.stringForKey("sshHost") {
+      sshHostTextField.stringValue = sshHost
+    }
+    if let sshRemoteDirectory = userDefaults.stringForKey("sshRemoteDirectory") {
+      sshRemoteDirectoryTextField.stringValue = sshRemoteDirectory
+    }
+    if let sshLocalCacheDirectory = userDefaults.stringForKey("sshLocalCacheDirectory") {
+      sshCacheDirectoryTextField.stringValue = sshLocalCacheDirectory
+    }
+  }
+  
+  private func saveSSHFieldsToPreferences() {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    userDefaults.setObject(sshUserTextField.stringValue, forKey: "sshUser")
+    userDefaults.setObject(sshHostTextField.stringValue, forKey: "sshHost")
+    userDefaults.setObject(sshRemoteDirectoryTextField.stringValue, forKey: "sshRemoteDirectory")
+    userDefaults.setObject(sshCacheDirectoryTextField.stringValue, forKey: "sshLocalCacheDirectory")
+    userDefaults.synchronize()
   }
 }
 
